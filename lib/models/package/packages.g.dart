@@ -8,10 +8,9 @@ part of 'packages.dart';
 
 Packages _$PackagesFromJson(Map<String, dynamic> json) {
   return Packages()
-    ..packages = (json['packages'] as List)
-        ?.map((e) =>
-            e == null ? null : Package.fromJson(e as Map<String, dynamic>))
-        ?.toList();
+    ..packages = json['packages'] == null
+        ? null
+        : Package.fromJson(json['packages'] as Map<String, dynamic>);
 }
 
 Map<String, dynamic> _$PackagesToJson(Packages instance) => <String, dynamic>{

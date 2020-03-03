@@ -1,18 +1,18 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'banks.dart';
+part of 'banksFPXs.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-Banks _$BanksFromJson(Map<String, dynamic> json) {
-  return Banks()
+BanksFPXs _$BanksFPXsFromJson(Map<String, dynamic> json) {
+  return BanksFPXs()
     ..banks = json['banks'] == null
         ? null
         : Bank.fromJson(json['banks'] as Map<String, dynamic>);
 }
 
-Map<String, dynamic> _$BanksToJson(Banks instance) => <String, dynamic>{
+Map<String, dynamic> _$BanksFPXsToJson(BanksFPXs instance) => <String, dynamic>{
       'banks': instance.banks,
     };

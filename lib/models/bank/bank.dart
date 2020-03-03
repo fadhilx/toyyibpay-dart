@@ -8,8 +8,9 @@ part 'bank.g.dart';
 class Bank {
       Bank();
 
-  @JsonKey(name: 'CODE') String cODE;
-  @JsonKey(name: 'NAME') String nAME;
+  String id;
+  String bank;
+  String status;
 
   factory Bank.fromJson(Map<String,dynamic> json) => _$BankFromJson(json);
   Map<String, dynamic> toJson() => _$BankToJson(this);

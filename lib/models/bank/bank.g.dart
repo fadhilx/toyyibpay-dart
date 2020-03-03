@@ -8,11 +8,13 @@ part of 'bank.dart';
 
 Bank _$BankFromJson(Map<String, dynamic> json) {
   return Bank()
-    ..cODE = json['CODE'] as String
-    ..nAME = json['NAME'] as String;
+    ..id = json['id'] as String
+    ..bank = json['bank'] as String
+    ..status = json['status'] as String;
 }
 
 Map<String, dynamic> _$BankToJson(Bank instance) => <String, dynamic>{
-      'CODE': instance.cODE,
-      'NAME': instance.nAME,
+      'id': instance.id,
+      'bank': instance.bank,
+      'status': instance.status,
     };
