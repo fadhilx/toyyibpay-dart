@@ -8,7 +8,7 @@ part 'category.g.dart';
 class Category {
       Category();
 
-  String categoryName;
+  @JsonKey(name: 'CategoryName') String categoryName;
   String categoryDescription;
   String categoryStatus;
 

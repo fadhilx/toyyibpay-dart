@@ -1,7 +1,7 @@
 export 'bank/bank.dart';
 export 'bank/bankFPX.dart';
+export 'bank/bankFPXs.dart';
 export 'bank/banks.dart';
-export 'bank/banksFPXs.dart';
 export 'bill/bill.dart';
 export 'bill/billCode.dart';
 export 'bill/billCodes.dart';

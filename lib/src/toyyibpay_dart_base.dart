@@ -98,7 +98,7 @@ class ToyyibPay {
     var params = bodyParams({
       'categoryCode': categoryCode,
     });
-    return http.post(url('index.php/api/getCategoryDetails'), body: params);
+    return http.post(url('/index.php/api/getCategoryDetails'), body: params);
   }
 
   Future<Response> createBill({
