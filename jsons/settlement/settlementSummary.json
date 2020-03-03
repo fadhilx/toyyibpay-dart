@@ -1,0 +1,19 @@
+{
+  "userID": "44",
+  "userName": "fitweb",
+  "today": "19-10-31",
+  "Amount_Pending": "1.00",
+  "Amount_settle": "5.00",
+  "AmountNett_Pending": "1.00",
+  "AmountNett_Settle": "0.00",
+  "Different_Pending": "0.00",
+  "Different_Settle": "5.00",
+  "Standard_Pending": "0.00",
+  "Standard_Settle": "0.00",
+  "Santai_Pending": "1.00",
+  "Santai_Settle": "5.00",
+  "Creditcard_Pending": "0.00",
+  "Creditcard_settle": "0.00",
+  "Transaction_Pending": "6",
+  "Trnsaction_Settle": "6"
+}
