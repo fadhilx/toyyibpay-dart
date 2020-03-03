@@ -8,7 +8,7 @@ Created from templates made available by Stagehand under a BSD-style
 A simple usage example:
 
 ```dart
-import 'package:toyyibpay_dart/toyyibpay_dart.dart';
+import 'package:toyyibpay_sdk/toyyibpay_dart.dart';
 
 main() {
   var awesome = new Awesome();
