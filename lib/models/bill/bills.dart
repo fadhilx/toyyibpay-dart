@@ -8,7 +8,7 @@ part 'bills.g.dart';
 class Bills {
       Bills();
 
-  Bill bills;
+  List<Bill> bills;
 
   factory Bills.fromJson(Map<String,dynamic> json) => _$BillsFromJson(json);
   Map<String, dynamic> toJson() => _$BillsToJson(this);

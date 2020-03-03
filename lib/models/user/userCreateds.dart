@@ -8,7 +8,7 @@ part 'userCreateds.g.dart';
 class UserCreateds {
       UserCreateds();
 
-  UserCreated userCreateds;
+  List<UserCreated> userCreateds;
 
   factory UserCreateds.fromJson(Map<String,dynamic> json) => _$UserCreatedsFromJson(json);
   Map<String, dynamic> toJson() => _$UserCreatedsToJson(this);

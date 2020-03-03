@@ -8,9 +8,10 @@ part of 'billCodes.dart';
 
 BillCodes _$BillCodesFromJson(Map<String, dynamic> json) {
   return BillCodes()
-    ..billCodes = json['billCodes'] == null
-        ? null
-        : BillCode.fromJson(json['billCodes'] as Map<String, dynamic>);
+    ..billCodes = (json['billCodes'] as List)
+        ?.map((e) =>
+            e == null ? null : BillCode.fromJson(e as Map<String, dynamic>))
+        ?.toList();
 }
 
 Map<String, dynamic> _$BillCodesToJson(BillCodes instance) => <String, dynamic>{

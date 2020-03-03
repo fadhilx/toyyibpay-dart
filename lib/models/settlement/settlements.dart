@@ -8,7 +8,7 @@ part 'settlements.g.dart';
 class Settlements {
       Settlements();
 
-  Settlement settlements;
+  List<Settlement> settlements;
 
   factory Settlements.fromJson(Map<String,dynamic> json) => _$SettlementsFromJson(json);
   Map<String, dynamic> toJson() => _$SettlementsToJson(this);

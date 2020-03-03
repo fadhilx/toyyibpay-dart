@@ -1,1 +1,1 @@
-{ "settlementSummaries": "$settlementSummary" }
+{ "settlementSummaries": "$[]settlementSummary" }

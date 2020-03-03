@@ -8,7 +8,7 @@ part 'banksFPXs.g.dart';
 class BanksFPXs {
       BanksFPXs();
 
-  Bank banks;
+  List<Bank> banks;
 
   factory BanksFPXs.fromJson(Map<String,dynamic> json) => _$BanksFPXsFromJson(json);
   Map<String, dynamic> toJson() => _$BanksFPXsToJson(this);

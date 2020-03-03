@@ -2,25 +2,36 @@ import 'package:http/http.dart' as http;
 import 'package:http/src/response.dart';
 
 import 'package:meta/meta.dart';
+import 'dart:core';
 
 class ToyyibPay {
+  bool sandbox = false;
   final String secreteKey;
-  ToyyibPay(this.secreteKey);
+  ToyyibPay(this.secreteKey, {this.sandbox});
+  String url(url) {
+    return baseUrl.resolve(url).toString();
+  }
+
+  Uri get baseUrl {
+    return Uri.parse(
+        sandbox ? 'https://dev.toyyibpay.com/' : 'https://toyyibpay.com/');
+  }
+
   Map bodyParams(Map params, {secretParamString}) {
     secretParamString ??= 'userSecretKey';
     return {secretParamString: secreteKey}..addAll(params);
   }
 
   Future<Response> getBank() {
-    return http.post('/index.php/api/getBank');
+    return http.post(url('/index.php/api/getBank'));
   }
 
   Future<Response> getBankFPX() {
-    return http.post('/index.php/api/getBankFPX');
+    return http.post(url('/index.php/api/getBankFPX'));
   }
 
   Future<Response> getPackage() {
-    return http.post('/index.php/api/getPackage');
+    return http.post(url('/index.php/api/getPackage'));
   }
 
   Future<Response> createAccount({
@@ -47,7 +58,7 @@ class ToyyibPay {
       'registrationNo': registrationNo,
       'package': package,
     });
-    return http.post('/index.php/api/createAccount', body: params);
+    return http.post(url('/index.php/api/createAccount'), body: params);
   }
 
   Future<Response> getUserStatus({
@@ -58,7 +69,7 @@ class ToyyibPay {
       'username': username,
       'enterpriseUserSecretKey': enterpriseUserSecretKey,
     });
-    return http.post('/index.php/api/getUserStatus', body: params);
+    return http.post(url('/index.php/api/getUserStatus'), body: params);
   }
 
   Future<Response> getAllUser({
@@ -67,7 +78,7 @@ class ToyyibPay {
     var params = bodyParams({
       'partnerType': partnerType,
     });
-    return http.post('/admin/api/getAllUser', body: params);
+    return http.post(url('/admin/api/getAllUser'), body: params);
   }
 
   Future<Response> createCategory({
@@ -78,7 +89,7 @@ class ToyyibPay {
       'catname': catname,
       'catdescription': catdescription,
     });
-    return http.post('/index.php/api/createCategory', body: params);
+    return http.post(url('/index.php/api/createCategory'), body: params);
   }
 
   Future<Response> getCategoryDetails({
@@ -87,7 +98,7 @@ class ToyyibPay {
     var params = bodyParams({
       'categoryCode': categoryCode,
     });
-    return http.post('index.php/api/getCategoryDetails', body: params);
+    return http.post(url('index.php/api/getCategoryDetails'), body: params);
   }
 
   Future<Response> createBill({
@@ -132,7 +143,7 @@ class ToyyibPay {
       'billAdditionalField': billAdditionalField,
       'billChargeToCustomer': billChargeToCustomer,
     });
-    return http.post('/index.php/api/createBill', body: params);
+    return http.post(url('/index.php/api/createBill'), body: params);
   }
 
   Future<Response> createBillMultiPayment({
@@ -175,7 +186,8 @@ class ToyyibPay {
       'billDisplayMerchant': billDisplayMerchant,
       'billContentEmail': billContentEmail,
     });
-    return http.post('/index.php/api/createBillMultiPayment', body: params);
+    return http.post(url('/index.php/api/createBillMultiPayment'),
+        body: params);
   }
 
   Future<Response> runBill({
@@ -194,7 +206,7 @@ class ToyyibPay {
       'billpaymentPayorEmail': billpaymentPayorEmail,
       'billBankID': billBankID,
     });
-    return http.post('/index.php/api/runBill', body: params);
+    return http.post(url('/index.php/api/runBill'), body: params);
   }
 
   Future<Response> getAllBill({
@@ -205,7 +217,7 @@ class ToyyibPay {
       'partnerType': partnerType,
       'yearMonth': yearMonth,
     });
-    return http.post('/admin/api/getAllBill', body: params);
+    return http.post(url('/admin/api/getAllBill'), body: params);
   }
 
   Future<Response> getBillTransactions({
@@ -216,7 +228,7 @@ class ToyyibPay {
       'billCode': billCode,
       'billpaymentStatus': billpaymentStatus,
     });
-    return http.post('/index.php/api/getBillTransactions', body: params);
+    return http.post(url('/index.php/api/getBillTransactions'), body: params);
   }
 
   Future<Response> getSettlement({
@@ -227,7 +239,7 @@ class ToyyibPay {
       'partnerType': partnerType,
       'detailByuserName': detailByuserName,
     });
-    return http.post('/admin/api/getSettlement', body: params);
+    return http.post(url('/admin/api/getSettlement'), body: params);
   }
 
   Future<Response> getSettlementSummary({
@@ -238,6 +250,6 @@ class ToyyibPay {
       'userPartnerType': userPartnerType,
       'userName': userName,
     });
-    return http.post('/admin/api/getSettlement', body: params);
+    return http.post(url('/admin/api/getSettlement'), body: params);
   }
 }

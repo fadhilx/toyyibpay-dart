@@ -8,9 +8,10 @@ part of 'userCreateds.dart';
 
 UserCreateds _$UserCreatedsFromJson(Map<String, dynamic> json) {
   return UserCreateds()
-    ..userCreateds = json['userCreateds'] == null
-        ? null
-        : UserCreated.fromJson(json['userCreateds'] as Map<String, dynamic>);
+    ..userCreateds = (json['userCreateds'] as List)
+        ?.map((e) =>
+            e == null ? null : UserCreated.fromJson(e as Map<String, dynamic>))
+        ?.toList();
 }
 
 Map<String, dynamic> _$UserCreatedsToJson(UserCreateds instance) =>

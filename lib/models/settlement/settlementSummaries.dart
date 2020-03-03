@@ -8,7 +8,7 @@ part 'settlementSummaries.g.dart';
 class SettlementSummaries {
       SettlementSummaries();
 
-  SettlementSummary settlementSummaries;
+  List<SettlementSummary> settlementSummaries;
 
   factory SettlementSummaries.fromJson(Map<String,dynamic> json) => _$SettlementSummariesFromJson(json);
   Map<String, dynamic> toJson() => _$SettlementSummariesToJson(this);

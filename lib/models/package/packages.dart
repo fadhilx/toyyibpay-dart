@@ -8,7 +8,7 @@ part 'packages.g.dart';
 class Packages {
       Packages();
 
-  Package packages;
+  List<Package> packages;
 
   factory Packages.fromJson(Map<String,dynamic> json) => _$PackagesFromJson(json);
   Map<String, dynamic> toJson() => _$PackagesToJson(this);

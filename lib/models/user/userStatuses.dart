@@ -8,7 +8,7 @@ part 'userStatuses.g.dart';
 class UserStatuses {
       UserStatuses();
 
-  UserStatus userStatuses;
+  List<UserStatus> userStatuses;
 
   factory UserStatuses.fromJson(Map<String,dynamic> json) => _$UserStatusesFromJson(json);
   Map<String, dynamic> toJson() => _$UserStatusesToJson(this);

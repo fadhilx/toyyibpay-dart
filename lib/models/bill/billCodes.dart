@@ -8,7 +8,7 @@ part 'billCodes.g.dart';
 class BillCodes {
       BillCodes();
 
-  BillCode billCodes;
+  List<BillCode> billCodes;
 
   factory BillCodes.fromJson(Map<String,dynamic> json) => _$BillCodesFromJson(json);
   Map<String, dynamic> toJson() => _$BillCodesToJson(this);

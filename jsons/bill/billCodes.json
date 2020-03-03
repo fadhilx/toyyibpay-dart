@@ -1,1 +1,1 @@
-{ "billCodes": "$billCode" }
+{ "billCodes": "$[]billCode" }

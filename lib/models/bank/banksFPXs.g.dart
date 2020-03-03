@@ -8,9 +8,10 @@ part of 'banksFPXs.dart';
 
 BanksFPXs _$BanksFPXsFromJson(Map<String, dynamic> json) {
   return BanksFPXs()
-    ..banks = json['banks'] == null
-        ? null
-        : Bank.fromJson(json['banks'] as Map<String, dynamic>);
+    ..banks = (json['banks'] as List)
+        ?.map(
+            (e) => e == null ? null : Bank.fromJson(e as Map<String, dynamic>))
+        ?.toList();
 }
 
 Map<String, dynamic> _$BanksFPXsToJson(BanksFPXs instance) => <String, dynamic>{

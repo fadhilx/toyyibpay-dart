@@ -1,1 +1,1 @@
-{ "categoryCodes": "$categoryCode" }
+{ "categoryCodes": "$[]categoryCode" }

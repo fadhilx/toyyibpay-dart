@@ -1,1 +1,1 @@
-{ "packages": "$package" }
+{ "packages": "$[]package" }

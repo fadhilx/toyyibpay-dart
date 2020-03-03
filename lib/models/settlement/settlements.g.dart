@@ -8,9 +8,10 @@ part of 'settlements.dart';
 
 Settlements _$SettlementsFromJson(Map<String, dynamic> json) {
   return Settlements()
-    ..settlements = json['settlements'] == null
-        ? null
-        : Settlement.fromJson(json['settlements'] as Map<String, dynamic>);
+    ..settlements = (json['settlements'] as List)
+        ?.map((e) =>
+            e == null ? null : Settlement.fromJson(e as Map<String, dynamic>))
+        ?.toList();
 }
 
 Map<String, dynamic> _$SettlementsToJson(Settlements instance) =>

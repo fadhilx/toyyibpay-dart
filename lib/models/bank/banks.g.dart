@@ -8,9 +8,10 @@ part of 'banks.dart';
 
 Banks _$BanksFromJson(Map<String, dynamic> json) {
   return Banks()
-    ..banks = json['banks'] == null
-        ? null
-        : Bank.fromJson(json['banks'] as Map<String, dynamic>);
+    ..banks = (json['banks'] as List)
+        ?.map(
+            (e) => e == null ? null : Bank.fromJson(e as Map<String, dynamic>))
+        ?.toList();
 }
 
 Map<String, dynamic> _$BanksToJson(Banks instance) => <String, dynamic>{

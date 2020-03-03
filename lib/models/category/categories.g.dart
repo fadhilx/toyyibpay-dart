@@ -8,9 +8,10 @@ part of 'categories.dart';
 
 Categories _$CategoriesFromJson(Map<String, dynamic> json) {
   return Categories()
-    ..categories = json['categories'] == null
-        ? null
-        : Category.fromJson(json['categories'] as Map<String, dynamic>);
+    ..categories = (json['categories'] as List)
+        ?.map((e) =>
+            e == null ? null : Category.fromJson(e as Map<String, dynamic>))
+        ?.toList();
 }
 
 Map<String, dynamic> _$CategoriesToJson(Categories instance) =>

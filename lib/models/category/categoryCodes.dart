@@ -8,7 +8,7 @@ part 'categoryCodes.g.dart';
 class CategoryCodes {
       CategoryCodes();
 
-  CategoryCode categoryCodes;
+  List<CategoryCode> categoryCodes;
 
   factory CategoryCodes.fromJson(Map<String,dynamic> json) => _$CategoryCodesFromJson(json);
   Map<String, dynamic> toJson() => _$CategoryCodesToJson(this);

@@ -8,9 +8,10 @@ part of 'userStatuses.dart';
 
 UserStatuses _$UserStatusesFromJson(Map<String, dynamic> json) {
   return UserStatuses()
-    ..userStatuses = json['userStatuses'] == null
-        ? null
-        : UserStatus.fromJson(json['userStatuses'] as Map<String, dynamic>);
+    ..userStatuses = (json['userStatuses'] as List)
+        ?.map((e) =>
+            e == null ? null : UserStatus.fromJson(e as Map<String, dynamic>))
+        ?.toList();
 }
 
 Map<String, dynamic> _$UserStatusesToJson(UserStatuses instance) =>

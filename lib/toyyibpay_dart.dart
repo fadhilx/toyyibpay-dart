@@ -4,5 +4,6 @@
 library toyyibpay_dart;
 
 export 'src/toyyibpay_dart_base.dart';
+export 'src/extensions.dart';
 
 // TODO: Export any libraries intended for clients of this package.

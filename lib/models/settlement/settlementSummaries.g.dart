@@ -8,10 +8,11 @@ part of 'settlementSummaries.dart';
 
 SettlementSummaries _$SettlementSummariesFromJson(Map<String, dynamic> json) {
   return SettlementSummaries()
-    ..settlementSummaries = json['settlementSummaries'] == null
-        ? null
-        : SettlementSummary.fromJson(
-            json['settlementSummaries'] as Map<String, dynamic>);
+    ..settlementSummaries = (json['settlementSummaries'] as List)
+        ?.map((e) => e == null
+            ? null
+            : SettlementSummary.fromJson(e as Map<String, dynamic>))
+        ?.toList();
 }
 
 Map<String, dynamic> _$SettlementSummariesToJson(

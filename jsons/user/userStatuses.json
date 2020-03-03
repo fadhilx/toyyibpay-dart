@@ -1,1 +1,1 @@
-{ "userStatuses": "$userStatus" }
+{ "userStatuses": "$[]userStatus" }

@@ -8,7 +8,7 @@ part 'transactions.g.dart';
 class Transactions {
       Transactions();
 
-  Transaction transactions;
+  List<Transaction> transactions;
 
   factory Transactions.fromJson(Map<String,dynamic> json) => _$TransactionsFromJson(json);
   Map<String, dynamic> toJson() => _$TransactionsToJson(this);
