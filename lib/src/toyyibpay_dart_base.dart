@@ -1,4 +1,9 @@
 import 'dart:core';
+export 'extensions/settlement.dart';
+export 'extensions/bill.dart';
+export 'extensions/category.dart';
+export 'extensions/general.dart';
+export 'extensions/user.dart';
 
 class ToyyibPay {
   bool sandbox = false;
