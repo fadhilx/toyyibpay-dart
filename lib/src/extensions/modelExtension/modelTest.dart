@@ -4,7 +4,6 @@ bool modelTest(model, responseBody, {wrapper}) {
   wrapper ??= (text) {
     return '$text';
   };
-  print(responseBody);
   Map decodedResp = json.decode(wrapper(responseBody));
   Map modelToJson = model.toJson();
   var keys = modelToJson.keys.map((e) => e.toLowerCase()).toList();
