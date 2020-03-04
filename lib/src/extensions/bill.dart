@@ -1,7 +1,7 @@
 import 'package:toyyibpay_sdk/models/index.dart';
 
 import '../toyyibpay_dart_base.dart';
-import '../extensions.dart';
+import 'index.dart';
 import 'package:meta/meta.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/src/response.dart';
