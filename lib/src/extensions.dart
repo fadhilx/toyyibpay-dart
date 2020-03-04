@@ -4,6 +4,12 @@ import 'package:http/http.dart';
 
 import '../models/index.dart';
 
+export 'extensions/settlement.dart';
+export 'extensions/bill.dart';
+export 'extensions/category.dart';
+export 'extensions/general.dart';
+export 'extensions/user.dart';
+
 bool modelTest(model, responseBody, {wrapper}) {
   wrapper ??= (text) {
     return '$text';

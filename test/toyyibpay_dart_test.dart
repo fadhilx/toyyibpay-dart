@@ -36,7 +36,6 @@ void main() async {
           billChargeToCustomer: '2');
       expect(model, isNotNull);
     });
-
     test('expect response match createBillMultiPayment', () async {
       // create
       var model = await toyyibpay.createBillMultiPayment(
@@ -70,7 +69,6 @@ void main() async {
       var model = await toyyibpay.getBankFPX();
       expect(model, isNotNull);
     });
-
     test('expect response match getPackage', () async {
       var model = await toyyibpay.getPackage();
       expect(model, isNotNull);
@@ -81,7 +79,6 @@ void main() async {
       );
       expect(model, isNotNull);
     });
-
     test('expect response match getBillTransactions', () async {
       var model = await toyyibpay.getBillTransactions(
         billCode: 'sejid',
@@ -99,7 +96,6 @@ void main() async {
       );
       expect(model, isNotNull);
     });
-
     test('expect response match getSettlement', () async {
       var model = await toyyibpay.getSettlement(
         partnerType: 'OEM',
@@ -107,7 +103,6 @@ void main() async {
       );
       expect(model, isNotNull);
     });
-
     test('expect response match getSettlementSummary', () async {
       var model = await toyyibpay.getSettlementSummary(
         userPartnerType: 'OEM',
