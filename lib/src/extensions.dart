@@ -4,202 +4,271 @@ import 'package:http/http.dart';
 
 import '../models/index.dart';
 
+bool modelTest(model, responseBody, {wrapper}) {
+  wrapper ??= (text) {
+    return '$text';
+  };
+  print(responseBody);
+  Map decodedResp = json.decode(wrapper(responseBody));
+  Map modelToJson = model.toJson();
+  var keys = modelToJson.keys.map((e) => e.toLowerCase()).toList();
+  var ok = true;
+  decodedResp.forEach((key, val) {
+    if (modelToJson[key] == null) {
+      print('- modelToJson `$key` is notequal');
+      if (keys.contains(key.toLowerCase())) {
+        print('  - but $key in different case');
+      }
+      if (ok) ok = false;
+    }
+  });
+  return ok;
+}
+
 extension BanksExt on Banks {
   String arrayFromKey(rest) {
-    return '{"banks":$rest}';
+    return wrapArray(rest);
   }
 
   static String wrapArray(rest) {
     return '{"banks":$rest}';
   }
 
-  static Future<Banks> fromFuture(Future<Response> future) async {
+  static Future<Banks> fromFuture(Future<Response> future,
+      {testModel = false}) async {
     var rest = (await future).body;
     var decoded = json.decode(wrapArray(rest));
-    return Banks.fromJson(decoded);
+    var model = Banks.fromJson(decoded);
+    modelTest(model, rest, wrapper: model.arrayFromKey);
+    return model;
   }
 }
 
 extension BankFPXsExt on BankFPXs {
   String arrayFromKey(rest) {
-    return '{"bankFPXs":$rest}';
+    return wrapArray(rest);
   }
 
   static String wrapArray(rest) {
     return '{"bankFPXs":$rest}';
   }
 
-  static Future<BankFPXs> fromFuture(Future<Response> future) async {
+  static Future<BankFPXs> fromFuture(Future<Response> future,
+      {testModel = false}) async {
     var rest = (await future).body;
     var decoded = json.decode(wrapArray(rest));
-    return BankFPXs.fromJson(decoded);
+    var model = BankFPXs.fromJson(decoded);
+    modelTest(model, rest, wrapper: model.arrayFromKey);
+    return model;
   }
 }
 
 extension BillsExt on Bills {
   String arrayFromKey(rest) {
-    return '{"bills":$rest}';
+    return wrapArray(rest);
   }
 
   static String wrapArray(rest) {
     return '{"bills":$rest}';
   }
 
-  static Future<Bills> fromFuture(Future<Response> future) async {
+  static Future<Bills> fromFuture(Future<Response> future,
+      {testModel = false}) async {
     var rest = (await future).body;
     var decoded = json.decode(wrapArray(rest));
-    return Bills.fromJson(decoded);
+    var model = Bills.fromJson(decoded);
+    modelTest(model, rest, wrapper: model.arrayFromKey);
+    return model;
   }
 }
 
 extension BillCodesExt on BillCodes {
   String arrayFromKey(rest) {
-    return '{"billCodes":$rest}';
+    return wrapArray(rest);
   }
 
   static String wrapArray(rest) {
     return '{"billCodes":$rest}';
   }
 
-  static Future<BillCodes> fromFuture(Future<Response> future) async {
+  static Future<BillCodes> fromFuture(Future<Response> future,
+      {testModel = false}) async {
     var rest = (await future).body;
     var decoded = json.decode(wrapArray(rest));
-    return BillCodes.fromJson(decoded);
+    var model = BillCodes.fromJson(decoded);
+    modelTest(model, rest, wrapper: model.arrayFromKey);
+    return model;
   }
 }
 
 extension TransactionsExt on Transactions {
   String arrayFromKey(rest) {
-    return '{"transactions":$rest}';
+    return wrapArray(rest);
   }
 
   static String wrapArray(rest) {
     return '{"transactions":$rest}';
   }
 
-  static Future<Transactions> fromFuture(Future<Response> future) async {
+  static Future<Transactions> fromFuture(Future<Response> future,
+      {testModel = false}) async {
     var rest = (await future).body;
     var decoded = json.decode(wrapArray(rest));
-    return Transactions.fromJson(decoded);
+    var model = Transactions.fromJson(decoded);
+    modelTest(model, rest, wrapper: model.arrayFromKey);
+    return model;
   }
 }
 
 extension CategoriesExt on Categories {
-  static Future<Categories> fromFuture(Future<Response> future) async {
+  String arrayFromKey(rest) {
+    return wrapArray(rest);
+  }
+
+  static String wrapArray(rest) {
+    return '{"transactions":$rest}';
+  }
+
+  static Future<Categories> fromFuture(Future<Response> future,
+      {testModel = false}) async {
     var rest = (await future).body;
     var decoded = json.decode('{ "categories": $rest }');
-    return Categories.fromJson(decoded);
+    var model = Categories.fromJson(decoded);
+    modelTest(model, rest, wrapper: model.arrayFromKey);
+    return model;
   }
 }
 
 extension CategoryCodesExt on CategoryCodes {
   String arrayFromKey(rest) {
-    return '{"categoryCodes":$rest}';
+    return wrapArray(rest);
   }
 
   static String wrapArray(rest) {
     return '{"categoryCodes":$rest}';
   }
 
-  static Future<CategoryCodes> fromFuture(Future<Response> future) async {
+  static Future<CategoryCodes> fromFuture(Future<Response> future,
+      {testModel = false}) async {
     var rest = (await future).body;
     var decoded = json.decode(wrapArray(rest));
-    return CategoryCodes.fromJson(decoded);
+    var model = CategoryCodes.fromJson(decoded);
+    modelTest(model, rest, wrapper: model.arrayFromKey);
+    return model;
   }
 }
 
 extension PackagesExt on Packages {
   String arrayFromKey(rest) {
-    return '{"packages":$rest}';
+    return wrapArray(rest);
   }
 
   static String wrapArray(rest) {
     return '{"packages":$rest}';
   }
 
-  static Future<Packages> fromFuture(Future<Response> future) async {
+  static Future<Packages> fromFuture(Future<Response> future,
+      {testModel = false}) async {
     var rest = (await future).body;
     var decoded = json.decode(wrapArray(rest));
-    return Packages.fromJson(decoded);
+    var model = Packages.fromJson(decoded);
+    modelTest(model, rest, wrapper: model.arrayFromKey);
+    return model;
   }
 }
 
 extension SettlementsExt on Settlements {
   String arrayFromKey(rest) {
-    return '{"settlements":$rest}';
+    return wrapArray(rest);
   }
 
   static String wrapArray(rest) {
     return '{"settlements":$rest}';
   }
 
-  static Future<Settlements> fromFuture(Future<Response> future) async {
+  static Future<Settlements> fromFuture(Future<Response> future,
+      {testModel = false}) async {
     var rest = (await future).body;
     var decoded = json.decode(wrapArray(rest));
-    return Settlements.fromJson(decoded);
+    var model = Settlements.fromJson(decoded);
+    modelTest(model, rest, wrapper: model.arrayFromKey);
+    return model;
   }
 }
 
 extension SettlementSummariesExt on SettlementSummaries {
   String arrayFromKey(rest) {
-    return '{"settlementSummaries":$rest}';
+    return wrapArray(rest);
   }
 
   static String wrapArray(rest) {
     return '{"settlementSummaries":$rest}';
   }
 
-  static Future<SettlementSummaries> fromFuture(Future<Response> future) async {
+  static Future<SettlementSummaries> fromFuture(Future<Response> future,
+      {testModel = false}) async {
     var rest = (await future).body;
-    return SettlementSummaries.fromJson(json.decode(wrapArray(rest)));
+    var decoded = json.decode(wrapArray(rest));
+    var model = SettlementSummaries.fromJson(decoded);
+    modelTest(model, rest, wrapper: model.arrayFromKey);
+    return model;
   }
 }
 
 extension UsersExt on Users {
   String arrayFromKey(rest) {
-    return '{"users":$rest}';
+    return wrapArray(rest);
   }
 
   static String wrapArray(rest) {
     return '{"users":$rest}';
   }
 
-  static Future<Users> fromFuture(Future<Response> future) async {
+  static Future<Users> fromFuture(Future<Response> future,
+      {testModel = false}) async {
     var rest = (await future).body;
     var decoded = json.decode(wrapArray(rest));
-    return Users.fromJson(decoded);
+    var model = Users.fromJson(decoded);
+    modelTest(model, rest, wrapper: model.arrayFromKey);
+    return model;
   }
 }
 
 extension UserCreatedsExt on UserCreateds {
   String arrayFromKey(rest) {
-    return '{"userCreateds":$rest}';
+    return wrapArray(rest);
   }
 
   static String wrapArray(rest) {
     return '{"userCreateds":$rest}';
   }
 
-  static Future<UserCreateds> fromFuture(Future<Response> future) async {
+  static Future<UserCreateds> fromFuture(Future<Response> future,
+      {testModel = false}) async {
     var rest = (await future).body;
     var decoded = json.decode(wrapArray(rest));
-    return UserCreateds.fromJson(decoded);
+    var model = UserCreateds.fromJson(decoded);
+    modelTest(model, rest, wrapper: model.arrayFromKey);
+    return model;
   }
 }
 
 extension UserStatusesExt on UserStatuses {
   String arrayFromKey(rest) {
-    return '{"userStatuses":$rest}';
+    return wrapArray(rest);
   }
 
   static String wrapArray(rest) {
     return '{"userStatuses":$rest}';
   }
 
-  static Future<UserStatuses> fromFuture(Future<Response> future) async {
+  static Future<UserStatuses> fromFuture(Future<Response> future,
+      {testModel = false}) async {
     var rest = (await future).body;
     var decoded = json.decode(wrapArray(rest));
-    return UserStatuses.fromJson(decoded);
+    var model = UserStatuses.fromJson(decoded);
+    modelTest(model, rest, wrapper: model.arrayFromKey);
+    return model;
   }
 }
 
@@ -207,105 +276,144 @@ extension UserStatusesExt on UserStatuses {
 //        singular
 // ******************************
 extension BankExt on Bank {
-  static Future<Bank> fromFuture(Future<Response> future) async {
+  static Future<Bank> fromFuture(Future<Response> future,
+      {testModel = false}) async {
     var rest = (await future).body;
     var decoded = json.decode(rest);
-    return Bank.fromJson(decoded);
+    var model = Bank.fromJson(decoded);
+    modelTest(model, rest);
+    return model;
   }
 }
 
 extension BankFPXExt on BankFPX {
-  static Future<BankFPX> fromFuture(Future<Response> future) async {
+  static Future<BankFPX> fromFuture(Future<Response> future,
+      {testModel = false}) async {
     var rest = (await future).body;
     var decoded = json.decode(rest);
-    return BankFPX.fromJson(decoded);
+    var model = BankFPX.fromJson(decoded);
+    modelTest(model, rest);
+    return model;
   }
 }
 
 extension BillExt on Bill {
-  static Future<Bill> fromFuture(Future<Response> future) async {
+  static Future<Bill> fromFuture(Future<Response> future,
+      {testModel = false}) async {
     var rest = (await future).body;
     var decoded = json.decode(rest);
-    return Bill.fromJson(decoded);
+    var model = Bill.fromJson(decoded);
+    modelTest(model, rest);
+    return model;
   }
 }
 
 extension BillCodeExt on BillCode {
-  static Future<BillCode> fromFuture(Future<Response> future) async {
+  static Future<BillCode> fromFuture(Future<Response> future,
+      {testModel = false}) async {
     var rest = (await future).body;
     var decoded = json.decode(rest);
-    return BillCode.fromJson(decoded);
+    var model = BillCode.fromJson(decoded);
+    modelTest(model, rest);
+    return model;
   }
 }
 
 extension TransactionExt on Transaction {
-  static Future<Transaction> fromFuture(Future<Response> future) async {
+  static Future<Transaction> fromFuture(Future<Response> future,
+      {testModel = false}) async {
     var rest = (await future).body;
     var decoded = json.decode(rest);
-    return Transaction.fromJson(decoded);
+    var model = Transaction.fromJson(decoded);
+    modelTest(model, rest);
+    return model;
   }
 }
 
 extension CategoryExt on Category {
-  static Future<Category> fromFuture(Future<Response> future) async {
+  static Future<Category> fromFuture(Future<Response> future,
+      {testModel = false}) async {
     var rest = (await future).body;
     var decoded = json.decode(rest);
-    return Category.fromJson(decoded);
+    var model = Category.fromJson(decoded);
+    modelTest(model, rest);
+    return model;
   }
 }
 
 extension CategoryCodeExt on CategoryCode {
-  static Future<CategoryCode> fromFuture(Future<Response> future) async {
+  static Future<CategoryCode> fromFuture(Future<Response> future,
+      {testModel = false}) async {
     var rest = (await future).body;
     var decoded = json.decode(rest);
-    return CategoryCode.fromJson(decoded);
+    var model = CategoryCode.fromJson(decoded);
+    modelTest(model, rest);
+    return model;
   }
 }
 
 extension PackageExt on Package {
-  static Future<Package> fromFuture(Future<Response> future) async {
+  static Future<Package> fromFuture(Future<Response> future,
+      {testModel = false}) async {
     var rest = (await future).body;
     var decoded = json.decode(rest);
-    return Package.fromJson(decoded);
+    var model = Package.fromJson(decoded);
+    modelTest(model, rest);
+    return model;
   }
 }
 
 extension SettlementExt on Settlement {
-  static Future<Settlement> fromFuture(Future<Response> future) async {
+  static Future<Settlement> fromFuture(Future<Response> future,
+      {testModel = false}) async {
     var rest = (await future).body;
     var decoded = json.decode(rest);
-    return Settlement.fromJson(decoded);
+    var model = Settlement.fromJson(decoded);
+    modelTest(model, rest);
+    return model;
   }
 }
 
 extension SettlementSummaryExt on SettlementSummary {
-  static Future<SettlementSummary> fromFuture(Future<Response> future) async {
+  static Future<SettlementSummary> fromFuture(Future<Response> future,
+      {testModel = false}) async {
     var rest = (await future).body;
     var decoded = json.decode(rest);
-    return SettlementSummary.fromJson(decoded);
+    var model = SettlementSummary.fromJson(decoded);
+    modelTest(model, rest);
+    return model;
   }
 }
 
 extension UserExt on User {
-  static Future<User> fromFuture(Future<Response> future) async {
+  static Future<User> fromFuture(Future<Response> future,
+      {testModel = false}) async {
     var rest = (await future).body;
     var decoded = json.decode(rest);
-    return User.fromJson(decoded);
+    var model = User.fromJson(decoded);
+    modelTest(model, rest);
+    return model;
   }
 }
 
 extension UserCreatedExt on UserCreated {
-  static Future<UserCreated> fromFuture(Future<Response> future) async {
+  static Future<UserCreated> fromFuture(Future<Response> future,
+      {testModel = false}) async {
     var rest = (await future).body;
     var decoded = json.decode(rest);
-    return UserCreated.fromJson(decoded);
+    var model = UserCreated.fromJson(decoded);
+    modelTest(model, rest);
+    return model;
   }
 }
 
 extension UserStatusExt on UserStatus {
-  static Future<UserStatus> fromFuture(Future<Response> future) async {
+  static Future<UserStatus> fromFuture(Future<Response> future,
+      {testModel = false}) async {
     var rest = (await future).body;
     var decoded = json.decode(rest);
-    return UserStatus.fromJson(decoded);
+    var model = UserStatus.fromJson(decoded);
+    modelTest(model, rest);
+    return model;
   }
 }
