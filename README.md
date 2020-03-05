@@ -1,7 +1,9 @@
 # toyyibpay_sdk 
 [![Pub Version](https://img.shields.io/pub/v/toyyibpay_sdk?color=%2335d9ba&style=flat-square)](https://pub.dev/packages/toyyibpay_sdk)
 
-lorem
+unofficial ToyyibPay SDK for dart
+
+> *toyyibpay sdk* require **SecretKey** to access the **API**, that means *toyyibpay sdk* only suitable for **Server** application, Consider the **consequences** of using it on **Front-End** Application, you secret key must remain secret
 
 ## Installation
 
@@ -15,25 +17,32 @@ dependencies:
 
 ## What?, Why?, How?
 ### What
-lorem
+toyyibpay sdk for you to call toyyibpay endpoint easily
 ### Why
 #### Problem
-lorem
+you may be want to build a dart server, but to integrate with toyyibpay api must be hard as the docs is written in `php` 
 
 #### Solution
-lorem
+toyyibpay dart sdk already turn the api reference to sdk application, so you just can only worry about dart code.
 
 ### How
-lorem
+this sdk provide you functions of toyyibpay api
 
 #### Example
-```json
-lorem
-```
-**Result**
 ```dart
-lorem
+void main() async {
+  ToyyibPay toyyibpay = ToyyibPay("YOUR_SECRET_KEY_HERE", sandbox: true); // sandbox is optional, its for sandbox mode, set it to false or remove it if you want to use production link instead
+
+  var banks = await toyyibpay.getBank(); /// Read [getBank](https://toyyibpay.com/apireference/#gb)
+
+  print(banks); // instance of Banks
+  // ...
+}
 ```
+
+Read:
+ - [ToyyibPay](/lib/src/toyyibpay_dart_base.dart)
+ - [getBank](/lib/src/extensions/general.dart)
 
 ## Contents
 - [toyyibpay_sdk](#toyyibpay_sdk)
@@ -46,10 +55,8 @@ lorem
     - [How](#how)
       - [Example](#example)
   - [Contents](#contents)
-  - [Getting started](#getting-started)
   - [Usage](#usage)
-  - [Examples](#examples)
-  - [Glossary](#glossary)
+    - [Declaration](#declaration)
   - [Support](#support)
     - [Documentation](#documentation)
     - [Bug/Error](#bugerror)
@@ -58,23 +65,11 @@ lorem
     - [Or](#or)
 
 
-
-## Getting started
-
-1. lorem
-
 ## Usage
-
-lorem
-
-## Examples
-
-lorem
-lorem
-
-## Glossary
-
-lorem
+### Declaration
+```dart
+ var toyyibpay = ToyyibPay("YOUR_SECRET_KEY_HERE", sandbox: true);
+```
 
 ## Support
 I'm open contribution for documentation, bug report, code maintenance, etc. properly submit an issue or send a pull request.
