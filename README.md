@@ -3,7 +3,7 @@
 
 unofficial ToyyibPay SDK for dart
 
-> *toyyibpay sdk* require **SecretKey** to access the **API**, that means *toyyibpay sdk* only suitable for **Server** application, Consider the **consequences** of using it on **Front-End** Application, you secret key must remain secret
+> *toyyibpay sdk* require **SecretKey** to access the **API**, that means *toyyibpay sdk* only suitable for **Server** application, Consider the **consequences** of using it on **Front-End** Application, your secret key must remain secret
 
 ## Installation
 
